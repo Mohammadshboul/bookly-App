@@ -2,3 +2,4 @@
 
 const kPrimaryColor=Color(0xff100820);
 const kTransationDuration=Duration(milliseconds: 250);
+const gTsectraFine="GTsectraFine";

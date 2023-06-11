@@ -14,8 +14,8 @@ class HomeViewBody extends StatelessWidget {
       children: [
         CustomAppBar(),
         FeaturedBooksListView(),
-        SizedBox(height: 35,),
-        Text("Best Seller",style: Styles.titleMedium,),
+        SizedBox(height: 25,),
+        Text("Best Seller",style: Styles.textStyle18,),
         SizedBox(height: 25,),
         BestSellerListViewItem(),
       ],
