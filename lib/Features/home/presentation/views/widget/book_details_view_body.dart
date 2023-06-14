@@ -1,4 +1,5 @@
 import 'package:booklyapp/Features/home/presentation/views/widget/book_rating.dart';
+import 'package:booklyapp/Features/home/presentation/views/widget/books_action.dart';
 import 'package:booklyapp/Features/home/presentation/views/widget/custom_book_details_app_bar.dart';
 import 'package:booklyapp/Features/home/presentation/views/widget/custom_book_item.dart';
 import 'package:booklyapp/core/utils/styles.dart';
@@ -11,8 +12,9 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const CustomBookDetailsAppBar(),
           Padding(
@@ -20,7 +22,7 @@ class BookDetailsViewBody extends StatelessWidget {
             child: const CustomBookImage(),
           ),
           const SizedBox(
-            height: 35,
+            height: 15,
           ),
           Text(
             "The Jungle Book",
@@ -44,9 +46,12 @@ class BookDetailsViewBody extends StatelessWidget {
           ),
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
-          )
+          ),
+          const SizedBox(height: 37,),
+          const BooksAction()
         ],
       ),
     );
   }
 }
+
