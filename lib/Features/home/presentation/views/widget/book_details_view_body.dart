@@ -2,6 +2,7 @@ import 'package:booklyapp/Features/home/presentation/views/widget/book_rating.da
 import 'package:booklyapp/Features/home/presentation/views/widget/books_action.dart';
 import 'package:booklyapp/Features/home/presentation/views/widget/custom_book_details_app_bar.dart';
 import 'package:booklyapp/Features/home/presentation/views/widget/custom_book_item.dart';
+import 'package:booklyapp/Features/home/presentation/views/widget/similer_books_list_view.dart';
 import 'package:booklyapp/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,6 @@ class BookDetailsViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const CustomBookDetailsAppBar(),
           Padding(
@@ -22,14 +22,14 @@ class BookDetailsViewBody extends StatelessWidget {
             child: const CustomBookImage(),
           ),
           const SizedBox(
-            height: 15,
+            height: 10,
           ),
           Text(
             "The Jungle Book",
             style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(
-            height: 6,
+            height: 5,
           ),
           Opacity(
             opacity: .7,
@@ -42,13 +42,29 @@ class BookDetailsViewBody extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 9,
           ),
           const BookRating(
             mainAxisAlignment: MainAxisAlignment.center,
           ),
-          const SizedBox(height: 37,),
-          const BooksAction()
+          const SizedBox(
+            height: 20,
+          ),
+          const BooksAction(),
+          const SizedBox(
+            height: 15,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "You can also like ",
+              style: Styles.textStyle16.copyWith(fontWeight: FontWeight.bold),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const SimilerBookListView(),
         ],
       ),
     );
