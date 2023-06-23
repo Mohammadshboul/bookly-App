@@ -14,20 +14,21 @@ class BestSellerListView extends StatelessWidget {
       builder: (context, state) {
         if (state is NewsetBooksSuccess) {
           return ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: EdgeInsets.zero,
-          itemCount: state.books.length,
-          itemBuilder: (context, index) {
-            return  Padding(
-              padding: const EdgeInsets.symmetric(vertical: 0),
-              child: BookListViewItem(bookModel: state.books[index],),
-            );
-          },
-        );
-        }
-        else if(state is NewsetBooksFailure){
+            physics: const NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
+            itemCount: state.books.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: BookListViewItem(
+                  bookModel: state.books[index],
+                ),
+              );
+            },
+          );
+        } else if (state is NewsetBooksFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
-        }else {
+        } else {
           return const CustomLoadingIndicator();
         }
       },

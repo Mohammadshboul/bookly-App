@@ -16,9 +16,11 @@ class BookListViewItem extends StatelessWidget {
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
-      child: SizedBox(
-        height: 130,
-        child: Row(
+      child:
+       SizedBox(
+        height: 97,
+        child:
+         Row(
           children: [
             CustomBookImage(
                 imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
