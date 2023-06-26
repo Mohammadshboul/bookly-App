@@ -25,11 +25,11 @@ class FeaturedBooksListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: GestureDetector(onTap: () {
-                    
-                            GoRouter.of(context).push(AppRouter.kBookDetailsView,extra:state.books[index]);
-
-                  },
+                  child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                            extra: state.books[index]);
+                      },
                       child: CustomBookImage(
                           imageUrl: state.books[index].volumeInfo.imageLinks
                                   ?.thumbnail ??
