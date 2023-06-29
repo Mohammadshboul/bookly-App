@@ -1,16 +1,18 @@
+import 'package:booklyapp/Features/home/data/models/book_model/book_model.dart';
+import 'package:booklyapp/core/utils/function/launch_url.dart';
 import 'package:booklyapp/core/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
-
+  const BooksAction({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(
-        children:[
-          Expanded(
+        children: [
+          const Expanded(
             child: CustomButton(
               text: "Free",
               backgroundColor: Colors.white,
@@ -18,18 +20,20 @@ class BooksAction extends StatelessWidget {
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(12),
                 bottomLeft: Radius.circular(12),
-                
               ),
-              
             ),
           ),
           Expanded(
             child: CustomButton(
-              text: "Free Preview",
+              onPressed: ()  {
+                launchCustomUrl(context, bookModel.volumeInfo.previewLink);
+                
+              },
+              text: getText(bookModel),
               fontsize: 15,
-              backgroundColor: Color(0xffEf8262),
+              backgroundColor: const Color(0xffEf8262),
               textcolor: Colors.white,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
               ),
@@ -38,5 +42,15 @@ class BooksAction extends StatelessWidget {
         ],
       ),
     );
+  }
+  
+ String getText(BookModel bookModel) {
+  if(bookModel.volumeInfo.previewLink==null){
+    return "Not Avaliable" ;
+  }else{
+    return " Previews"; 
+
+  }
+
   }
 }
