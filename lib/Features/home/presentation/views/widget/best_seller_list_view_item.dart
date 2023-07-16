@@ -14,17 +14,15 @@ class BookListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        
-        GoRouter.of(context).push(AppRouter.kBookDetailsView,extra:bookModel );
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
-      child:
-       SizedBox(
+      child: SizedBox(
         height: 97,
-        child:
-         Row(
+        child: Row(
           children: [
             CustomBookImage(
-                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? gDefaultBook),
+                imageUrl:
+                    bookModel.volumeInfo.imageLinks?.thumbnail ?? gDefaultBook),
             const SizedBox(
               width: 30,
             ),
@@ -33,7 +31,7 @@ class BookListViewItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * .5,
+                    width: MediaQuery.of(context).size.width * .8,
                     child: Text(
                       bookModel.volumeInfo.title!,
                       maxLines: 2,
@@ -47,7 +45,9 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   Text(
                     bookModel.volumeInfo.authors![0],
-                    style: Styles.textStyle14,
+                    style: Styles.textStyle14.copyWith(
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                   const SizedBox(
                     height: 3,
@@ -61,8 +61,9 @@ class BookListViewItem extends StatelessWidget {
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
                       BookRating(
-                        count: bookModel.volumeInfo.ratingsCount??0,
-                        rating: bookModel.volumeInfo.averageRating?.round() ??0,
+                        count: bookModel.volumeInfo.ratingsCount ?? 0,
+                        rating:
+                            bookModel.volumeInfo.averageRating?.round() ?? 0,
                         mainAxisAlignment: MainAxisAlignment.start,
                       )
                     ],
